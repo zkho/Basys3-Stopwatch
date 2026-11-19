@@ -1,6 +1,6 @@
 # Programmable Stopwatch/Timer (Basys3 FPGA)
 
-RTL implementation of a programmable stopwatch and countdown timer in Verilog targeting the **Digilent Basys3** (Artix-7 FPGA) using **Xilinx Vivado**, developed for **EE 316: Digital Logic Design** at UT Austin[cite: 1, 2, 3].
+RTL implementation of a programmable stopwatch and countdown timer in Verilog targeting the **Digilent Basys3** (Artix-7 FPGA) using **Xilinx Vivado**, developed for **ECE 316: Digital Logic Design** at UT Austin[cite: 1, 2, 3].
 
 ## Overview
 
