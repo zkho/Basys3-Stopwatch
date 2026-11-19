@@ -1,6 +1,6 @@
 # Programmable Stopwatch/Timer (Basys3 FPGA)
 
-RTL implementation of a programmable stopwatch and countdown timer in Verilog targeting the **Digilent Basys3** (Artix-7 FPGA) using **Xilinx Vivado**, developed for **ECE 316: Digital Logic Design** at UT Austin[cite: 1, 2, 3].
+RTL implementation of a programmable stopwatch and countdown timer in Verilog targeting the **Digilent Basys3** (Artix-7 FPGA) using **Xilinx Vivado**, developed for **ECE 316: Digital Logic Design** at UT Austin
 
 ## Overview
 
@@ -10,10 +10,10 @@ The design drives all four multiplexed **7-segment displays** to show `SS.ss` (`
 
 | Mode Select | Mode | Behavior |
 | :---: | :--- | :--- |
-| `00` | **Stopwatch (Up from `00.00`)** | Initializes at `00.00`; Start/Stop toggles counting up to `99.99` (halts at saturation); Reset returns to `00.00`[cite: 3]. |
-| `01` | **Timer (Down from `99.99`)** | Initializes at `99.99`; Start/Stop toggles counting down to `00.00` (halts at `00.00`); Reset returns to `99.99`[cite: 3]. |
-| `10` | **Preset Stopwatch (Up from Load)** | Counts up like Mode `00`, starting/resetting from a BCD seconds value (`00`–`99`) set via 8 preset switches[cite: 3, 4]. |
-| `11` | **Preset Timer (Down from Load)** | Counts down like Mode `01`, starting/resetting from a BCD seconds value (`00`–`99`) set via 8 preset switches[cite: 3, 4]. |
+| `00` | **Stopwatch (Up from `00.00`)** | Initializes at `00.00`; Start/Stop toggles counting up to `99.99` (halts at saturation); Reset returns to `00.00`. |
+| `01` | **Timer (Down from `99.99`)** | Initializes at `99.99`; Start/Stop toggles counting down to `00.00` (halts at `00.00`); Reset returns to `99.99`. |
+| `10` | **Preset Stopwatch (Up from Load)** | Counts up like Mode `00`, starting/resetting from a BCD seconds value (`00`–`99`) set via 8 preset switches. |
+| `11` | **Preset Timer (Down from Load)** | Counts down like Mode `01`, starting/resetting from a BCD seconds value (`00`–`99`) set via 8 preset switches. |
 
 ## Architecture
 
@@ -29,11 +29,11 @@ Structured using standard RTL design methodology (HLSM / datapath + controller F
 | Signal / Function | Basys3 Hardware | Notes |
 | :--- | :--- | :--- |
 | System Clock | `100 MHz` oscillator (`W5`) | Mapped in `.xdc` constraints |
-| Start / Stop | Pushbutton (`BTN...`) | Toggles counting state; debounce/edge-detect as implemented[cite: 3, 4] |
-| Reset / Load | Pushbutton (`BTN...`) | Resets to `00.00`, `99.99`, or preset seconds depending on mode[cite: 3, 4] |
-| Mode Select `[1:0]` | 2 Slide Switches (`SW...`) | Selects `00`, `01`, `10`, or `11`[cite: 4] |
-| Preset Seconds `[7:0]` | 8 Slide Switches (`SW...`) | Two 4-bit BCD digits (`0000`–`1001` / `0`–`9` each) for tens and ones of seconds[cite: 3, 4] |
-| Time Display | 4-Digit 7-Segment Display | `[MSB:LSB]` = `[Sec Tens, Sec Ones, 10ms Tens, 10ms Ones]`[cite: 3] |
+| Start / Stop | Pushbutton (`BTN...`) | Toggles counting state; debounce/edge-detect as implemented |
+| Reset / Load | Pushbutton (`BTN...`) | Resets to `00.00`, `99.99`, or preset seconds depending on mode |
+| Mode Select `[1:0]` | 2 Slide Switches (`SW...`) | Selects `00`, `01`, `10`, or `11` |
+| Preset Seconds `[7:0]` | 8 Slide Switches (`SW...`) | Two 4-bit BCD digits (`0000`–`1001` / `0`–`9` each) for tens and ones of seconds |
+| Time Display | 4-Digit 7-Segment Display | `[MSB:LSB]` = `[Sec Tens, Sec Ones, 10ms Tens, 10ms Ones]` |
 
 ## Repository Structure
 
